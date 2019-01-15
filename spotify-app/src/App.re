@@ -45,7 +45,14 @@ let make = _children => {
         {
           self.state.isLoggedIn ?
             <div>
-              <Query />
+              <Query
+                token={
+                  switch (OneGraphAuth.authToken(self.state.auth)) {
+                  | Some(token) => token
+                  | None => ""
+                  }
+                }
+              />
               <User
                 auth={self.state.auth}
                 setLogInStatus={status => self.send(SetLogInStatus(status))}

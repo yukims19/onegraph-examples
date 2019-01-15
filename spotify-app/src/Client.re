@@ -10,5 +10,12 @@ let httpLink =
     (),
   );
 
+let authLink =
+  ApolloLinks.createContextLink(() => {"headers": OneGraphAuth.authHeaders});
+
 let instance =
-  ReasonApollo.createApolloClient(~link=httpLink, ~cache=inMemoryCache, ());
+  ReasonApollo.createApolloClient(
+    ~link=ApolloLinks.from([|httpLink, authLink|]),
+    ~cache=inMemoryCache,
+    (),
+  );
