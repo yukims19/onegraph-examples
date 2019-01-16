@@ -1,14 +1,11 @@
 module GetUsername = [%graphql
-  {|
-     query findMe {
-     me {
-     gmail {
-     email
-     }
-     }
-     }
-
-|}
+  {|query findMe {
+  me {
+    gmail {
+      email
+    }
+  }
+}|}
 ];
 
 module GetUserNameQuery = ReasonApollo.CreateQuery(GetUsername);

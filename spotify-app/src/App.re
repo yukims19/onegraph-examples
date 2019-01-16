@@ -16,11 +16,7 @@ let component = ReasonReact.reducerComponent("App");
 
 let make = _children => {
   ...component,
-  initialState: () => {
-    isLoggedIn: false,
-    auth: OneGraphAuth.newAuth(OneGraphAuth.config),
-    userName: None,
-  },
+  initialState: () => {isLoggedIn: false, auth: Client.auth, userName: None},
   didMount: self =>
     Js.Promise.(
       OneGraphAuth.(
