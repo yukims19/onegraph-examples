@@ -116,7 +116,6 @@ let make = (~peerId, _children) => {
           }>
           <input
             className=shareLinkURL
-            id="url-text-box"
             value={"www.example.com/?dj=" ++ peerId}
             readOnly=true
           />
