@@ -84,15 +84,10 @@ let subInfo = [%css
   ]
 ];
 
-let copyUrlToClipboard = url => {
-  Js.log("started");
+let copyUrlToClipboard = url =>
   Utils.writeText(url)
-  |> Js.Promise.then_(_e => {
-       Js.log("resolved here");
-       Js.Promise.resolve();
-     })
+  |> Js.Promise.then_(_e => Js.Promise.resolve())
   |> ignore;
-};
 
 let shareSocialMedia = (url, name, properties) =>
   Utils.windowOpen(url, name, properties);
